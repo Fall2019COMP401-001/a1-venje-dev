@@ -32,14 +32,19 @@ public class A1Novice {
 			
 			customers[i].fillCustomerItems(scan, itemCount);
 			
-			// Print the customers with data
-			
-			for(int j=0; j<totalCustomers; j++) {
-				
-				System.out.println(customers[j].getFirstName().charAt(0) +
-									". " + customers[j].getLastName() + ": " +
-									customers[j].getCustomerTotal());
-			}
+		}
+		
+		// All input parsed
+		
+		scan.close();
+					
+		// Print the customers with data
+					
+		for(int i=0; i<totalCustomers; i++) {
+						
+			System.out.println(customers[i].getFirstName().charAt(0) + ". " + 
+							   customers[i].getLastName() + ": " +
+							   customers[i].getCustomerTotal());
 			
 		}
 		

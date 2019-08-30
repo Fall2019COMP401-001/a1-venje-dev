@@ -20,6 +20,7 @@ class Customer {
 		lastName = customerLastName;
 		
 		//Initialize array based on the number of items
+		
 		items = new Item[itemCount];
 	}
 	
@@ -32,11 +33,6 @@ class Customer {
 	 */
 	public void fillCustomerItems(Scanner scanner, int numberOfItems) {
 		
-		// Read in item data
-		
-		String itemName = scanner.next();
-		int itemCount = scanner.nextInt();
-		double itemPrice = scanner.nextDouble();
 		
 		// Initialize the item array using the item count
 		
@@ -45,6 +41,14 @@ class Customer {
 		// FIll the items array with the item data
 		
 		for(int i=0; i<numberOfItems; i++) {
+			
+			// Read in item data
+			
+			int itemCount = scanner.nextInt();
+			String itemName = scanner.next();
+			double itemPrice = scanner.nextDouble();
+			
+			// Create the item
 			
 			items[i] = new Item(itemName, itemCount, itemPrice);
 			
@@ -57,7 +61,7 @@ class Customer {
 	 * 
 	 * Output: The total price of all customer items
 	 */
-	public double getCustomerTotal() {
+	public String getCustomerTotal() {
 		
 		double totalPrice = 0.0;
 		
@@ -68,7 +72,7 @@ class Customer {
 			totalPrice += items[i].getTotalPrice();
 		}
 		
-		return totalPrice;
+		return String.format("%.2f", totalPrice);
 	}
 	
 	/* getFirstName
