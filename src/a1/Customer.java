@@ -111,6 +111,8 @@ class Customer {
 	
 	/* getFirstName
 	 * Gets the customers first name
+	 * 
+	 * Output: A string of the customer first name
 	 */
 	public String getFirstName() {
 		
@@ -119,10 +121,37 @@ class Customer {
 	
 	/* getLastName
 	 * Gets the customers last name
+	 * 
+	 * Output: A string of the customer last name
 	 */
 	public String getLastName() {
 		
 		return lastName;
+	}
+	
+
+	/* amountPurchased
+	 * Returns the amount of a particular item purchased
+	 * 
+	 * Input: A string of the item name
+	 * 
+	 * Output: An integer of the number of purchased item
+	 * 
+	 */
+	public int amountPurchased(String itemName) {
+		
+		int totalPurchased = 0;
+		
+		for( int i=0; i< items.length; i++) {
+			
+			if(items[i].getName().equalsIgnoreCase(itemName)) {
+				
+				totalPurchased = items[i].getCount();
+				break;
+			}
+		}
+		
+		return totalPurchased;
 	}
 
 }

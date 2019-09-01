@@ -29,5 +29,26 @@ public class Item {
 		return price * count;
 		
 	}
+	
+	/* getName
+	 * return the name of the item
+	 * 
+	 * Output: A string of the items name
+	 */
+	public String getName() {
+		
+		return name;
+		
+	}
+	
+	/* getCount
+	 * Return the number of items
+	 * 
+	 * Output: A integer of the number of items
+	 */
+	public int getCount() {
+		
+		return count;
+	}
 
 }

@@ -94,6 +94,41 @@ public class Store {
 		System.out.println("Average: " + String.format("%.2f", customerTotal/customers.size()));
 	}
 	
+	/* printBoughtItemData
+	 * Print out how many customers bought a particular item
+	 */
+	public void printBoughtItemData() {
+		
+		//Go through each item in the store to see if a customer has it in their list
+		
+		for (HashMap.Entry<String,Double> entry : items.entrySet())  {
+			
+			int customersPurchased = 0;
+			int totalBought = 0;
+			
+			for(Customer customer : customers) {
+				
+				int amountBought = customer.amountPurchased(entry.getKey());
+				
+				if(amountBought > 0) {
+					customersPurchased += 1;
+					totalBought += amountBought;
+				}
+				
+			}
+			
+			//Output the amount of item purchased
+			
+			if(customersPurchased > 0) {
+				System.out.println(customersPurchased + " customers bought " + totalBought +
+						" " + entry.getKey());
+			}else {
+				System.out.println("No customers bought " + entry.getKey());
+			}
+		}
+		
+	}
+	
 	/* addCustomer
 	 * Add a customer to the list of customers using the store
 	 * 
