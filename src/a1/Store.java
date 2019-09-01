@@ -73,7 +73,7 @@ public class Store {
 			if( Double.parseDouble(customers.get(i).getCustomerTotal()) > 
 				Double.parseDouble(highestCustomer.getCustomerTotal())) {
 				
-				highestCustomer = customers.get(0);
+				highestCustomer = customers.get(i);
 				
 			}else if(Double.parseDouble(customers.get(i).getCustomerTotal()) < 
 					 Double.parseDouble(lowestCustomer.getCustomerTotal())) {
