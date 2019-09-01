@@ -63,20 +63,20 @@ public class Store {
 		
 		Customer highestCustomer = customers.get(0);
 		Customer lowestCustomer = customers.get(0);
-		double customerTotal = Double.parseDouble(customers.get(0).getCustomerTotal());
+		double customerTotal = customers.get(0).getRawTotalPrice();
 		
 		//Get the customer with the highest and lowest item list
 		for(int i=1; i<customers.size(); i++ ) {
 			
-			customerTotal +=  Double.parseDouble(customers.get(i).getCustomerTotal());
+			customerTotal +=  customers.get(i).getRawTotalPrice();
 			
-			if( Double.parseDouble(customers.get(i).getCustomerTotal()) > 
-				Double.parseDouble(highestCustomer.getCustomerTotal())) {
+			if( customers.get(i).getRawTotalPrice() > 
+				highestCustomer.getRawTotalPrice()) {
 				
 				highestCustomer = customers.get(i);
 				
-			}else if(Double.parseDouble(customers.get(i).getCustomerTotal()) < 
-					 Double.parseDouble(lowestCustomer.getCustomerTotal())) {
+			}else if(customers.get(i).getRawTotalPrice() < 
+					 lowestCustomer.getRawTotalPrice()) {
 				
 				lowestCustomer = customers.get(i);
 				

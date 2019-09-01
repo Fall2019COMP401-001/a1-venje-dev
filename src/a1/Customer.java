@@ -80,9 +80,21 @@ class Customer {
 	/*getCustomerTotal
 	 * Calculates and returns the total price of all customer items
 	 * 
-	 * Output: The total price of all customer items
+	 * Output: The formated total price of all customer items
 	 */
 	public String getCustomerTotal() {
+		
+		double totalPrice = getRawTotalPrice();
+		
+		return String.format("%.2f", totalPrice);
+	}
+	
+	/* getRawTotalPrice
+	 * Returns the raw double of the total price
+	 * 
+	 * Output: The unformatted double of the total price
+	 */
+	public double getRawTotalPrice() {
 		
 		double totalPrice = 0.0;
 		
@@ -93,7 +105,8 @@ class Customer {
 			totalPrice += items[i].getTotalPrice();
 		}
 		
-		return String.format("%.2f", totalPrice);
+		return totalPrice;
+		
 	}
 	
 	/* getFirstName
