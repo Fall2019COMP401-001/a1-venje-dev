@@ -1,6 +1,7 @@
 package a1;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Store {
@@ -8,6 +9,9 @@ public class Store {
 	// Initialize HashMap with to store items along with the price
 	
 	HashMap<String, Double> items = new HashMap<>();
+	
+	//List of customers using the store
+	ArrayList<Customer> customers = new ArrayList<Customer>();
 	
 	/* fillItems
 	 * 
@@ -55,7 +59,53 @@ public class Store {
 	 * 
 	 * Preconditions: A non null list of customers
 	 */
-	public static void printCustomerData(Customer[] customers) {
+	public void printCustomerData() {
 		
+		Customer highestCustomer = customers.get(0);
+		Customer lowestCustomer = customers.get(0);
+		double customerTotal = Double.parseDouble(customers.get(0).getCustomerTotal());
+		
+		//Get the customer with the highest and lowest item list
+		for(int i=1; i<customers.size(); i++ ) {
+			
+			customerTotal +=  Double.parseDouble(customers.get(i).getCustomerTotal());
+			
+			if( Double.parseDouble(customers.get(i).getCustomerTotal()) > 
+				Double.parseDouble(highestCustomer.getCustomerTotal())) {
+				
+				highestCustomer = customers.get(0);
+				
+			}else if(Double.parseDouble(customers.get(i).getCustomerTotal()) < 
+					 Double.parseDouble(lowestCustomer.getCustomerTotal())) {
+				
+				lowestCustomer = customers.get(i);
+				
+			}
+		}
+		
+		//Output the data
+		
+		System.out.println("Biggest: " + highestCustomer.getFirstName() + " " + highestCustomer.getLastName() + 
+						   " (" + highestCustomer.getCustomerTotal() + ")");
+		
+		System.out.println("Smallest: " + lowestCustomer.getFirstName() + " " + lowestCustomer.getLastName() + 
+				   " (" + lowestCustomer.getCustomerTotal() + ")");
+		
+		System.out.println("Average: " + String.format("%.2f", customerTotal/customers.size()));
+	}
+	
+	/* addCustomer
+	 * Add a customer to the list of customers using the store
+	 * 
+	 * Input: A customer object and a scanner for adding items
+	 * 
+	 * Preconditions: A non null scanner object
+	 */
+	public void addCustomer(Customer customer, Scanner scanner) {
+		
+		//Add the customer to the list and fill their item list
+		
+		customers.add(customer);
+		customer.fillCustomerFromShop(this, scanner);
 	}
 }

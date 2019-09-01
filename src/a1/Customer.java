@@ -71,7 +71,6 @@ class Customer {
 			String nameOfItem = scanner.next();
 			
 			// Add item to customer item list using the price from the store
-			
 			items[i] = new Item(nameOfItem, numberOfItem, store.getItemPrice(nameOfItem));
 			
 		}
