@@ -146,8 +146,7 @@ class Customer {
 			
 			if(items[i].getName().equalsIgnoreCase(itemName)) {
 				
-				totalPurchased = items[i].getCount();
-				break;
+				totalPurchased += items[i].getCount();
 			}
 		}
 		
