@@ -56,6 +56,28 @@ class Customer {
 		
 	}
 	
+	/* fillCustomerFromShop
+	 * Fills the customers item list using store pricing
+	 * 
+	 * Input: A store object and a scanner for reading input
+	 * 
+	 * Preconditions: The store must not be null
+	 */
+	public void fillCustomerFromShop(Store store, Scanner scanner) {
+		
+		for(int i=0; i<items.length; i++) {
+			
+			int numberOfItem = scanner.nextInt();
+			String nameOfItem = scanner.next();
+			
+			// Add item to customer item list using the price from the store
+			
+			items[i] = new Item(nameOfItem, numberOfItem, store.getItemPrice(nameOfItem));
+			
+		}
+		
+	}
+	
 	/*getCustomerTotal
 	 * Calculates and returns the total price of all customer items
 	 * 

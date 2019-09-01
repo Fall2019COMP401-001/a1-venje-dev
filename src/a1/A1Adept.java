@@ -8,7 +8,23 @@ public class A1Adept {
 		
 		Scanner scan = new Scanner(System.in);
 
-		// Your code follows here.
+		// Read in the number of store items
+		
+		int totalStoreItems = scan.nextInt();
+		
+		// Create a new store to hold items
+		
+		Store store = new Store();
+		
+		// Fill the store items
+		
+		store.fillItems(scan, totalStoreItems);
+		
+		// Read in the total number of customers
+		
+		int totalCustomers = scan.nextInt();
+		
+		
 		
 	}
 }
