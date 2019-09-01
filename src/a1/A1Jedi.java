@@ -41,7 +41,7 @@ public class A1Jedi {
 		
 		//Output the customer data
 		
-		store.printCustomerData();		
+		store.printBoughtItemData();		
 		
 	}
 }
