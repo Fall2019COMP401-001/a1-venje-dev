@@ -2,6 +2,7 @@ package a1;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class Store {
@@ -99,16 +100,21 @@ public class Store {
 	 */
 	public void printBoughtItemData() {
 		
+		//Convert HashMap to array for easy sorting
+		
+		ArrayList<String> itemsList = new ArrayList<>(items.keySet());
+		Collections.sort(itemsList);
+		
 		//Go through each item in the store to see if a customer has it in their list
 		
-		for (HashMap.Entry<String,Double> entry : items.entrySet())  {
+		for (String item : itemsList)  {
 			
 			int customersPurchased = 0;
 			int totalBought = 0;
 			
 			for(Customer customer : customers) {
 				
-				int amountBought = customer.amountPurchased(entry.getKey());
+				int amountBought = customer.amountPurchased(item);
 				
 				if(amountBought > 0) {
 					customersPurchased += 1;
@@ -121,9 +127,9 @@ public class Store {
 			
 			if(customersPurchased > 0) {
 				System.out.println(customersPurchased + " customers bought " + totalBought +
-						" " + entry.getKey());
+						" " + item);
 			}else {
-				System.out.println("No customers bought " + entry.getKey());
+				System.out.println("No customers bought " + item);
 			}
 		}
 		
